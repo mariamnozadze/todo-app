@@ -1,4 +1,4 @@
-To Do List with Sign In form in React.
+To Do List with Sign In form in React with class components
 <br>
 <br>
 <br>
