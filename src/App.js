@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Navbar } from "./components/Navbar";
+import { TodoRows } from "./components/TodoRows";
 
 export default class App extends Component {
   constructor(props) {
@@ -29,6 +30,11 @@ export default class App extends Component {
     });
   };
 
+  todoRows = () =>
+    this.state.todoItems.map((item) => (
+      <TodoRows key={item.action} item={item} callback={this.toggleDone} />
+    ));
+
   toggleDone = (todo) =>
     this.setState({
       todoItems: this.state.todoItems.map((item) =>
@@ -36,28 +42,10 @@ export default class App extends Component {
       ),
     });
 
-  todoRows = () =>
-    this.state.todoItems.map((item) => (
-      <tr key={item.action}>
-        <td>{item.action}</td>
-        <td>
-          <input
-            type="checkbox"
-            checked={item.done}
-            onChange={() => this.toggleDone(item)}
-          ></input>
-        </td>
-      </tr>
-    ));
-
-  // changeStateData = () => {
-  //   this.setState({
-  //     userName: this.state.userName === "Name1" ? "Name2" : "Name1",
-  //   });
-  // };
   render = () => (
     <div className="container">
       <div className="row">
+        <Navbar name={this.state.userName} />
         <div className="col-12">
           <input
             className="form-control"
