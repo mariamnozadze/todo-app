@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export class todoRows extends Component {
+export class TodoRows extends Component {
   render = () => (
     <tr key={this.props.item.action}>
       <td>{this.props.item.action}</td>
